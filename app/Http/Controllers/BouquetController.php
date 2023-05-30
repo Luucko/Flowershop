@@ -37,7 +37,7 @@ class BouquetController extends Controller
 
     function buildRules(){
         return [
-            "bouquet_id" => "required|numeric|exists:App\Models\Bouquet,id",
+            "chosen_bouquet" => "required|numeric|exists:App\Models\Bouquet,id",
             "client_name" => "required|string|max:50",
             "email" => "required|email|max:255",
             "delivery_address" => "required|string|max:255",
@@ -49,10 +49,11 @@ class BouquetController extends Controller
     {
         $purchase = new Purchase();
 
-        $purchase->show_id = $data["show_id"];
-        $purchase->visitor_name = $data["visitor_name"];
-        $purchase->score = $data["score"];
-        $purchase->comments = $data["comments"];
+        $purchase->chosen_bouquet = $data["chosen_bouquet"];
+        $purchase->client_name = $data["client_name"];
+        $purchase->email = $data["email"];
+        $purchase->delivery_address = $data["delivery_address"];
+        $purchase->delivery_method = $data["delivery_method"];
 
         return $purchase;
     }
