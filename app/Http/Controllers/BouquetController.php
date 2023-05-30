@@ -11,16 +11,14 @@ use Illuminate\Support\Facades\Validator;
 
 class BouquetController extends Controller
 {
-    function allBouquets()
-    {
+    function allBouquets(){
         Log::info("Retrieving all flowers");
 
         return ["data" => Bouquet::all()];
     }
 
 
-    function addPurchase(Request $request)
-    {
+    function addPurchase(Request $request){
         $validator = Validator::make($request->all(), $this->buildRules());
 
         if ($validator->fails()) {
@@ -37,13 +35,13 @@ class BouquetController extends Controller
         }
     }
 
-    function buildRules()
-    {
+    function buildRules(){
         return [
-            "show_id" => "required|numeric|exists:App\Models\Show,id",
-            "visitor_name" => "required|string|max:50",
-            "score" => "required|numeric|min:0|max:100",
-            "comments" => "nullable|string|max:255"
+            "bouquet_id" => "required|numeric|exists:App\Models\Bouquet,id",
+            "client_name" => "required|string|max:50",
+            "email" => "required|email|max:255",
+            "delivery_address" => "required|string|max:255",
+            "delivery_method" => "required|string|in:standard,express"
         ];
     }
 
