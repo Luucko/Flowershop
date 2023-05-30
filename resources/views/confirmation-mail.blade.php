@@ -15,8 +15,8 @@
 <p>Dear {{$purchase -> client_name}}, thank you for purchasing the following bouquet: </p>
 
 <ul>
-    <li>Name: {{ $bouquet -> name }}</li>
-    <li>Price: {{ $bouquet -> price }}</li>
+    <li>Name: {{ $bouquetName -> name }}</li>
+    <li>Price: {{ $bouquetPrice -> price }}</li>
 </ul>
 
 <p>Regards from the Howest Flowershop</p>

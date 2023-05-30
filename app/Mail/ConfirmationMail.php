@@ -44,10 +44,8 @@ class ConfirmationMail extends Mailable
             view: 'confirmation-mail',
             with: [
                 "purchase" => $this->purchase,
-                // "visitorName" => $this->nomination->visitor_name,
-                "showName" => Bouquet::find($this->nomination->show_id)->name,
-                // "score" => $this->nomination->score,
-                // "comments" => $this->nomination->comments,
+                "bouquetName" => Bouquet::find($this->purchase->chosen_bouquet)->name,
+                "bouquetPrice" => Bouquet::find($this->purchase->chosen_bouquet)->price
             ]
         );
     }
