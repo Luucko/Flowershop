@@ -22,7 +22,7 @@ class ConfirmationMail extends Mailable
      */
     public function __construct(Purchase $purchase)
     {
-        $this -> $purchase = $purchase;
+        $this -> purchase = $purchase;
     }
 
     /**
@@ -41,15 +41,12 @@ class ConfirmationMail extends Mailable
     public function content(): Content
     {
 
-        $bouquetName = Bouquet::find($this->purchase->chosen_bouquet);
-        $bouquetPrice = Bouquet::find($this->purchase->chosen_bouquet);
-
         return new Content(
             view: 'confirmation-mail',
             with: [
-                "booking" => $this -> purchase,
-                "bouquetName" => $bouquetName,
-                "bouquetPrice" => $bouquetPrice
+                "purchase" => $this -> purchase,
+                "bouquetName" => Bouquet::find($this -> purchase -> chosen_bouquet) -> name,
+                "bouquetPrice" => Bouquet::find($this -> purchase -> chosen_bouquet) -> price
             ]
         );
     }

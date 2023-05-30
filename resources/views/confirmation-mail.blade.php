@@ -8,15 +8,15 @@
 </head>
 <body>
 
-<h1>Purchase confirmation{{ $booking -> firstname }} {{ $booking -> lastname }}!</h1>
+<h1>Purchase confirmation</h1>
 
 <h2>Order number: {{$purchase -> id}}</h2>
 
 <p>Dear {{$purchase -> client_name}}, thank you for purchasing the following bouquet: </p>
 
 <ul>
-    <li>Name: {{ $bouquetName -> name }}</li>
-    <li>Price: {{ $bouquetPrice -> price }}</li>
+    <li>Name: {{ $bouquetName}}</li>
+    <li>Price: € {{ $bouquetPrice}}</li>
 </ul>
 
 <p>Regards from the Howest Flowershop</p>
