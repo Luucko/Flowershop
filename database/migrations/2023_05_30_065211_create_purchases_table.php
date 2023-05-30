@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
+            $table->string('client_name');
+            $table->string('email');
+            $table->string('delivery_address');
+            $table->string('delivery_method');
+            $table->string('chosen_bouquet');
             $table->timestamps();
         });
     }
