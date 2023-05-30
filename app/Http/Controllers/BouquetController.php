@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ConfirmationMail;
 use App\Models\Bouquet;
 use App\Models\Purchase;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class BouquetController extends Controller
@@ -29,7 +31,7 @@ class BouquetController extends Controller
 
             $purchase->save();
 
-            //$this->sendConfirmationMail($nomination);
+            $this->sendConfirmationMail($purchase);
 
             return response()->json(["data" => $purchase], Response::HTTP_CREATED);
         }
@@ -58,9 +60,9 @@ class BouquetController extends Controller
         return $purchase;
     }
 
-    /* function sendConfirmationMail($nomination)
+    function sendConfirmationMail($purchase)
     {
-        $mail = new ConfirmationMail($nomination);
-        Mail::to("client email here")->send($mail);
-    }*/
+        $mail = new ConfirmationMail($purchase);
+        Mail::to($purchase -> email) -> send($mail);
+    }
 }
