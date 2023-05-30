@@ -40,12 +40,16 @@ class ConfirmationMail extends Mailable
      */
     public function content(): Content
     {
+
+        $bouquetName = Bouquet::find($this->purchase->chosen_bouquet);
+        $bouquetPrice = Bouquet::find($this->purchase->chosen_bouquet);
+
         return new Content(
             view: 'confirmation-mail',
             with: [
-                "purchase" => $this->purchase,
-                "bouquetName" => Bouquet::find($this->purchase->chosen_bouquet)->name,
-                "bouquetPrice" => Bouquet::find($this->purchase->chosen_bouquet)->price
+                "booking" => $this -> purchase,
+                "bouquetName" => $bouquetName,
+                "bouquetPrice" => $bouquetPrice
             ]
         );
     }
