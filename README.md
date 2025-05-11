@@ -1,6 +1,5 @@
-# **🌸 Flowershop (2023)**
+# **Flowershop (2023)**
 ## **Course:** Web Development Essentials
-## **Grade:** 19/20
 ## **Tools used:** Laravel (PHP), MySQL, HTML, CSS, JavaScript
 
 This was the final exam project for the Web Development Essentials course, where we had to extend a partially built front-end into a fully functioning e-commerce-style application with a Laravel-powered back-end. It was my first time building a full-stack app with Laravel, and it gave me a strong foundation in MVC structure, backend validation, database modeling, and transactional logic.
